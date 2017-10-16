@@ -13,7 +13,7 @@
 
   <div class="form-group">
      {!! Form::label('name', 'Name:') !!}
-     {!! Form::text('title', null, ['class'=>'form-control']) !!}
+     {!! Form::text('name', null, ['class'=>'form-control']) !!}
   </div>
   <div class="form-group">
     {!! Form::label('email', 'Email:') !!}
@@ -30,6 +30,11 @@
   <div class="form-group">
     {!! Form::label('is_active', 'Status:') !!}
     {!! Form::select('is_active', array(1=>'Active', 0=>'Not active') ,0, ['class'=>'form-control']) !!}
+  </div>
+
+  <div class="form-group">
+    {!! Form::label('image', 'Profile Picture:') !!}
+    {!! Form::file('image', null, ['class'=>'form-control']) !!}
   </div>
 
   <div class="form-group">

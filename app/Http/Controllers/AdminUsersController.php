@@ -16,9 +16,10 @@ class AdminUsersController extends Controller
      */
     public function index()
     {
-        $users = User::all();
+       $users = User::all();
 
         return view('admin.users.index', compact('users'));
+
     }
 
     /**
@@ -42,7 +43,10 @@ class AdminUsersController extends Controller
      */
     public function store(UsersRequest $request)
     {
-        return $request->all();
+
+        User::create($request->all());
+
+        redirect('/users');
     }
 
     /**
