@@ -19,13 +19,13 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/users', 'AdminUsersController');
+Route::resource('admin/users', 'AdminUsersController');
 
 
-Route::get('/admin', function(){
+Route::get('/admin', ['as' => 'admin', function(){
 
 
     return view('admin.index');
 
 
-});
+}]);
