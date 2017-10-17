@@ -4,6 +4,12 @@
 
 @section('content')
 
+  @if(Session::has('deleted_user'))
+
+     <p class="bg-danger">{{session('deleted_user')}}</p>
+
+        @endif
+
  </hr>
 
  <h2>Users</h2>
@@ -39,7 +45,10 @@
                     <td>{{$user->created_at->diffForHumans()}}</td>
                     <td>{{$user->updated_at->diffForHumans()}}</td>
                     <td><a href="{{route('users.edit', $user->id)}}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a></td>
-                    <td><a href="{{route('users.destroy', $user->id)}}" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+                    <td>{!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) !!}
+                        {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+                        {!! Form::close() !!}
+                    </td>
                 </tr>
                 @endif
             @endforeach
@@ -82,7 +91,10 @@
         <td>{{$user->created_at->diffForHumans()}}</td>
         <td>{{$user->updated_at->diffForHumans()}}</td>
           <td><a href="{{route('users.edit', $user->id)}}" class="btn btn-primary btn-xs" role="button"><span class="glyphicon glyphicon-pencil"></span> Edit</a></td>
-         <td><a href="{{route('users.destroy', $user->id)}}" class="btn btn-danger btn-xs" role="button"><span class="glyphicon glyphicon-trash"></span> Delete</a></td>
+          <td>{!! Form::open(['method' => 'DELETE', 'route' => ['users.destroy', $user->id]]) !!}
+              {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-xs']) !!}
+              {!! Form::close() !!}
+          </td>
       </tr>
      @endforeach
 
