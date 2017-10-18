@@ -37,7 +37,7 @@
                 @if($user->role_id==1)
                 <tr>
                     <td>{{$user->id}}</td>
-                    <td><img height="50" src="{{$user->photo ? $user->photo->image : '/images/400x400.png'}}" alt=""></td>
+                    <td><img height="50" src="{{$user->photo ? $user->photo->image : '/images/400x400.png'}}" alt="" ></td>
                     <td>{{$user->name}}</td>
                     <td>{{$user->email}}</td>
                     <td>{{$user->role->name}}</td>
